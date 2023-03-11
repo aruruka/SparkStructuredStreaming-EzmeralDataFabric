@@ -19,7 +19,7 @@ object StructuredStreamingConsumer extends App {
     var topic: String = "/test/stream-volume1-dir/wordcount-stream:wordcount"
     val lines = spark.readStream
       .format("kafka")
-    //   .option("kafka.bootstrap.servers", bootstrapServers)
+      //   .option("kafka.bootstrap.servers", bootstrapServers)
       .option(subscribeType, topic)
       .option("group.id", "testgroup")
       .option("startingOffsets", "earliest")
@@ -46,6 +46,5 @@ object StructuredStreamingConsumer extends App {
       ex.printStackTrace() // 標準errorへアウトプット
       System.err.println("exception===>: ...") // 標準errorへアウトプット
     }
-
   }
 }
